@@ -94,8 +94,22 @@ This guide provides a comprehensive overview of the steps involved in processing
 Description of data structure fields in the generated .mat file:
 - trialnum: trial number 
 - fixdur: fixation duration [s] per each item fixation
-- fixitem: fixated item (item 1-RV or item 2-RV)
+- fixitem: fixated item (item1-RV or item2-RV)
 - itemval: perceptual states value associated with each item 
-- choice: decision at end of trial (1-Lane Changing or 2-Lane Keeping
+- choice: decision at end of trial (1-Lane Changing or 2-Lane Keeping)
 - rt: response time [s]
 - tItem: total fixation time [s] spent on either item
+
+## Installation
+
+To run the Matlab scripts, download and extract them into a folder of your choice, and navigate to this folder within MATLAB.
+
+The [`functions`] folder contains all the custom MATLAB functions that are used in the main scripts. This directory will be added in the beginning of each script.
+
+All scripts have been tested and run under MATLAB R2023a in Windows10 system. There are four scripts that plot Figure2, Figure3, Figure4 in the result section of the article and FigureA2 in the extended section. These four scripts should utilize the functions included in this package to plot all the figures. Simply set the `rootdir` variable, that is declared at the beginning of each script, to the directory that includes the scripts, and they should run correctly.
+
+1. [`Lanechange2023_fig2_rdv.m`]
+2. [`Lanechange2023_fig3_boxplot.m`]
+3. [`Lanechange2023_fig4_times.m`]
+4. [`Lanechange2023_figextend_behavior.m`]
+
