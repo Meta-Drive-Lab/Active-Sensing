@@ -4,7 +4,7 @@ This repository contains the toolkit of data processing and MATLAB scripts to re
 
 # Data Processing Guide
 
-This guide covers the steps for processing the DR(eye)VE open-source dataset, including code and workflow. Please note that the BIT dataset is a reference dataset shared by BIT and is temporarily not available. Therefore, this document focuses on the processing methods for the DR(eye)VE dataset. The data processing steps for BIT are not within the scope of this guide. This document is dedicated to simple data integration and processing.
+This guide covers the steps for processing the DR(eye)VE open-source dataset, including code and workflow. Please note that the BIT dataset is a reference dataset shared by BIT and is temporarily not available. Therefore, this part focuses on the processing methods for the DR(eye)VE dataset. The data processing steps for BIT are not within the scope of this guide. This part is dedicated to simple data integration and processing.
 
 Our goal is to convert the DR(eye)VE dataset into MAT format for further analysis and research. Below is an overview of the entire processing workflow, including the required environment setup and detailed instructions for each processing step.
 
@@ -88,3 +88,14 @@ python getMat.py
 ```
 
 This guide provides a comprehensive overview of the steps involved in processing the DR(eye)VE dataset and converting it into MAT format. If you encounter any issues or require more detailed information, please feel free to reach out.
+
+# Figure Generating Guide
+
+Description of data structure fields in the generated .mat file:
+- trialnum: trial number 
+- fixdur: fixation duration [s] per each item fixation
+- fixitem: fixated item (item 1-RV or item 2-RV)
+- itemval: perceptual states value associated with each item 
+- choice: decision at end of trial (1-Lane Changing or 2-Lane Keeping
+- rt: response time [s]
+- tItem: total fixation time [s] spent on either item
