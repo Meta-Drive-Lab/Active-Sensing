@@ -104,13 +104,14 @@ Description of data structure fields in the generated .mat file:
 
 To execute the Matlab scripts, you need to download and extract them into a folder of your preference, and then navigate to this folder using MATLAB. The relevant files are in the [`FigurePlot_HKUST-GZ`] folder.
 
+The [`data`] folder contains the human driving behavioural data.
 The [`functions`] folder contains all the custom MATLAB functions utilized in the main scripts. This directory will be included at the start of each script.
 
-All scripts have been tested and run under MATLAB R2023a on a Windows10 system. There are four scripts responsible for generating Figure2, Figure3, Figure4 in the results section of the article, and FigureA2 in the extended section. These four scripts are designed to utilize the functions provided within this package to generate all the figures. By simply setting the rootdir variable, which is declared at the beginning of each script, to the directory containing the scripts, they should execute correctly.
-1. [`Lanechange2023_fig2_rdv.m`]
-2. [`Lanechange2023_fig3_boxplot.m`]
-3. [`Lanechange2023_fig4_times.m`]
-4. [`Lanechange2023_figextend_behavior.m`]
+All scripts have been tested and run under MATLAB R2023a on a Windows10 system. There are four scripts responsible for generating Figure2-5 in the results section of the article, and FigureA2 in the extended section. These four scripts are designed to utilize the functions provided within this package to generate all the figures. By simply setting the rootdir variable, which is declared at the beginning of each script, to the directory containing the scripts, they should execute correctly.
+1. [`Lanechange2023_rdv.m`]
+2. [`Lanechange2023_times.m`]
+3. [`Lanechange2023_behaviour.m`]
+4. [`Lanechange2023_extended.m`]
 
 # License
 
