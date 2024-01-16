@@ -1,9 +1,9 @@
-function allstats = makeBehavPlots(bout,plotOptions)
+function allstats = makeBehavPlots_model(bout,plotOptions)
 
 allstats = struct;  % return statistical tests done
 subCount = length(bout.rt);
 
-plot_psychometrics = 1;
+plot_psychometrics = 0;
 plot_middleFix = 0;
 plot_choiceBias = 1;
 

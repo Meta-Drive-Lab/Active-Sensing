@@ -30,8 +30,14 @@ numsubs = length(dstruct_real);
 whichModels = [0, 1]; % 0: Human data, 1: aDDM simulation
 for i = 1:length(whichModels)
    whichModel = whichModels(i);
+   % whichModel = 0; % 0: Human data, 1: aDDM simulation
     if whichModel == 0  % Human data
         dstruct = dstruct_real;
+        % Plot behavioral plots
+        bout_sim = getbehavoutput(dstruct);
+        stats_behav = makeBehavPlots_realData(bout_sim,plotOptions);
+        actual_data = bout_sim.item1chosen_valdiff_all;
+
     elseif whichModel == 1  % aDDM model    
         % Get empty datastruct for models
         z_reps = 40;  % Number of iteration
@@ -71,22 +77,13 @@ for i = 1:length(whichModels)
                 
             end
         end
-    end
-    % Plot behavioral plots
     bout_sim = getbehavoutput(dstruct);
-    stats_behav = makeBehavPlots(bout_sim,plotOptions);
-
-    % MSE
-    if whichModel == 0
-        actual_data = bout_sim.item1chosen_valdiff_all; 
-    elseif whichModel == 1
-        stimulus_data = bout_sim.item1chosen_valdiff_all;
+    stats_behav = makeBehavPlots_model(bout_sim,plotOptions);
+    stimulus_data = bout_sim.item1chosen_valdiff_all;
     end
+
 end
 
 % Calculate MSE between simulated and real data
 mse_item1chosen = mse(stimulus_data - actual_data);
 disp(['MSE between simulated and real data: ', num2str(mse_item1chosen)]);
-
-
-
