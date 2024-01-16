@@ -6,7 +6,7 @@ This repository contains the toolkit of data processing and MATLAB scripts to re
 
 This guide covers the steps for processing the DR(eye)VE open-source dataset, including code and workflow. Please note that the BIT dataset is a reference dataset shared by BIT and is temporarily not available. Therefore, this part focuses on the processing methods for the DR(eye)VE dataset. The data processing steps for BIT are not within the scope of this guide. This part is dedicated to simple data integration and processing.
 
-Our goal is to convert the DR(eye)VE dataset into MAT format for further analysis and research. Below is an overview of the entire processing workflow, including the required environment setup and detailed instructions for each processing step.
+Our goal is to convert the DR(eye)VE dataset into MAT format for further analysis and research. Below is an overview of the entire processing workflow, including the required environment setup and detailed instructions for each processing step. The relevant files are in the [`OpenCode_Eye&Behavior_HKUST-GZ`] folder.
 
 ## 0. Environment Configuration
 
@@ -102,7 +102,7 @@ Description of data structure fields in the generated .mat file:
 
 ## Installation
 
-To execute the Matlab scripts, you need to download and extract them into a folder of your preference, and then navigate to this folder using MATLAB.
+To execute the Matlab scripts, you need to download and extract them into a folder of your preference, and then navigate to this folder using MATLAB. The relevant files are in the [`FigurePlot_HKUST-GZ`] folder.
 
 The [`functions`] folder contains all the custom MATLAB functions utilized in the main scripts. This directory will be included at the start of each script.
 
