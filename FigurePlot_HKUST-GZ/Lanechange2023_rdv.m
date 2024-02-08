@@ -5,7 +5,6 @@ addpath(genpath(rootdir));
 data_dir = fullfile(rootdir,'data');
 set(0,'defaultAxesFontSize',10);
 
-
 % Set aDDM parameters
 dt = 0.001;
 d = 0.0002;
@@ -95,3 +94,41 @@ for s = 1:numsubs
     end
 end
 
+%% Show momentary evidence across time
+z = [3,3];  % Item values
+sig2_x = 0.00057;  % Evidence accumulation noise
+aGamma = 0.3; 
+dt = 0.001;  % Time step
+t = 3.473;  % Length of time to show
+ts = dt*1000:dt*1000:t*1000; 
+N = t/dt;
+colors_item = [0.34, 0.53, 0.70; 0.91, 0.28, 0.28];
+
+fixseq = [ones(1,round(0.288*N)),2*ones(1,round(0.144*N)),ones(1,round(0.1728*N)),2*ones(1,round(0.222*N)),ones(1,round(0.066*N))];
+fixseq = [fixseq,2*ones(1,N-length(fixseq))];
+switchpts = ts([0,diff(fixseq)~=0]==1);
+
+% Plot evidence distribution across time 
+dx = nan(N,2);   % Evidence accumulation
+tItem = [0,0];   % Time points each item was attended to
+for n = 1:N
+    y = fixseq(n);  % Currently attended item
+    tItem(y) = tItem(y)+dt;  % Time advances
+    % Evidence accumulation
+    dx1 = randn*sqrt( (sig2_x*(aGamma^(2-y)))*dt ) + z(1)*dt; %FV
+    dx2 = randn*sqrt( (sig2_x*(aGamma^(y-1)))*dt ) + z(2)*dt; %RV
+    dx(n,:) = [dx1,dx2];
+end
+% Plot
+figure; hold on;
+for i = 1:2
+    if i==1, plots(i) = plot(ts,dx(:,i),'o','Color',colors_item(i,:),'markersize',3);
+    else, plots(i) = plot(ts,dx(:,i),'.','Color',colors_item(i,:),'markersize',6);
+    end
+    plot(get(gca,'xlim'),[z(i)*dt,z(i)*dt],'--','Color',colors_item(i,:));
+end
+set(gca,'ylim',[-0.002,0.008]);
+for sw = 1:length(switchpts), plot([switchpts(sw),switchpts(sw)],get(gca,'ylim'),'k--'); end
+xlabel('Time(ms)');
+ylabel('Momentary evidence');
+legend(plots,{'FV','RV'});
